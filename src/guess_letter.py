@@ -4,22 +4,29 @@ Handles what happens when the user guesses a letter.
 from src.letter import letter_positions, fill_in_letter
 
 
-def guess_letter(unfilled_word, word, letter, wrongly_guessed_letters):
+def guess_letter(unfilled_word: list[str],
+                 word: str,
+                 letter: str,
+                 wrong_letters: set[str]):
     """
     Fills in the letter if it's in the word otherwise
     appends to the wrongly_guessed_letter array.
 
-    :param unfilled_word: Word that's not complete such as: <letter> _ _ _ _ ...
+    :param unfilled_word: Word that's not complete, such as <letter> _ _ _ _ ...
     :param letter: Guessed letter
     :param word: The actual word
-    :param wrongly_guessed_letters:
-        Letters that already exist and are wrong.
+    :param wrong_letters:
+        Set of letters that already exist and are wrong.
         Empty if no letters have been guessed.
     """
     positions = letter_positions(word, letter)
     fill_in_letter(unfilled_word, letter, positions)
-    # TODO: Correct letter, do the above. Incorrect letter,
-    #  fill in the wrongly_guessed letters and add to wrong guesses
+
+    if wrong_letter_guessed(word, letter):
+        wrong_letters.add(letter)
+
+    #TODO: If user puts in a word that contains other than characters
+    # raise error.
 
 
 def wrong_letter_guessed(word, letter):
