@@ -1,6 +1,6 @@
 import unittest
 
-from src.main import fill_in_letter
+from src.letter import fill_in_letter
 
 
 class FillInWord(unittest.TestCase):

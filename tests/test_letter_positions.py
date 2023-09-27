@@ -1,6 +1,6 @@
 import unittest
 
-from src.main import letter_positions
+from src.letter import letter_positions
 
 
 class LetterPositions(unittest.TestCase):
