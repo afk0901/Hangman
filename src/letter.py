@@ -1,5 +1,5 @@
 """
-Contains methods that handles the given letter,
+Contains methods that handle the given letter,
 such as the positions of the letter or
 wrong letter.
 """
@@ -33,4 +33,3 @@ def fill_in_letter(unfilled_word, letter, positions):
     """
     for pos in positions:
         unfilled_word[pos] = letter
-

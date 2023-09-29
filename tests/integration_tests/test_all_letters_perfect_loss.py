@@ -17,7 +17,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"R"},
-            "R"
+            "R",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -27,7 +27,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "R"},
-            "A"
+            "A",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -37,7 +37,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "R", "N"},
-            "N"
+            "N",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -47,7 +47,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "R", "N", "O"},
-            "O"
+            "O",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -57,7 +57,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "R", "N", "O", "T"},
-            "T"
+            "T",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -67,7 +67,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "J", "R", "N", "O", "T"},
-            "J"
+            "J",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -77,7 +77,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "J", "R", "N", "O", "T", "Z"},
-            "Z"
+            "Z",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -87,7 +87,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "J", "R", "N", "O", "T", "W", "Z"},
-            "W"
+            "W",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -97,7 +97,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "J", "R", "V", "N", "O", "T", "W", "Z"},
-            "V"
+            "V",
         )
 
         # Has not won or lost yet, another wrong guess
@@ -107,7 +107,7 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "G", "J", "R", "V", "N", "O", "T", "W", "Z"},
-            "G"
+            "G",
         )
 
         # Finally, user has lost the game.
@@ -118,9 +118,9 @@ class PerfectLoss(unittest.TestCase):
             self.unfilled_word,
             self.wrong_letters,
             {"A", "F", "G", "J", "R", "V", "N", "O", "T", "W", "Z"},
-            "F"
+            "F",
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

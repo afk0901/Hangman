@@ -10,8 +10,9 @@ class LostWonAssertions(unittest.TestCase):
     or the user lost.
     """
 
-    def assert_not_lost_not_won(self, unfilled_word: list[str],
-                                word: str, wrong_letters: set[str]):
+    def assert_not_lost_not_won(
+        self, unfilled_word: list[str], word: str, wrong_letters: set[str]
+    ):
         """
         Asserts if the user has not lost the game, neither win the game.
         :param: unfilled_word:

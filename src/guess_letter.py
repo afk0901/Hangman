@@ -4,10 +4,9 @@ Handles what happens when the user guesses a letter.
 from src.letter import letter_positions, fill_in_letter
 
 
-def guess_letter(unfilled_word: list[str],
-                 word: str,
-                 letter: str,
-                 wrong_letters: set[str]):
+def guess_letter(
+    unfilled_word: list[str], word: str, letter: str, wrong_letters: set[str]
+):
     """
     Fills in the letter if it's in the word otherwise
     appends to the wrongly_guessed_letter array.
@@ -25,8 +24,12 @@ def guess_letter(unfilled_word: list[str],
     if wrong_letter_guessed(word, letter):
         wrong_letters.add(letter)
 
-    #TODO: If user puts in a word that contains other than characters
+    # TODO: If user puts in a word that contains other than characters
     # raise error.
+
+    # TODO: User can only guess one letter at time not many letters
+
+    # TODO: User gets a message if letter has already been guessed.
 
 
 def wrong_letter_guessed(word, letter):

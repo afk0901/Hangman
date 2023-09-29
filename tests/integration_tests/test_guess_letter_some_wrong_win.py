@@ -8,6 +8,7 @@ from tests.helpers.guess_letter_assertions import GuessLetterAssertions
 
 # Does not test user input. Only pre-defined guesses.
 
+
 class SomeLettersWrongWin(unittest.TestCase):
     word = "MISSISSIPPI"
     unfilled_word = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"]
@@ -25,7 +26,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             self.wrong_letters,
-            "M"
+            "M",
         )
 
         # Wrong latter
@@ -36,7 +37,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"Z"},
-            "Z"
+            "Z",
         )
 
         # Wrong letter again, same letter
@@ -47,7 +48,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"Z"},
-            "Z"
+            "Z",
         )
 
         # Wrong letter again, different letter
@@ -57,8 +58,8 @@ class SomeLettersWrongWin(unittest.TestCase):
             self.unfilled_word,
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
-            {"D","Z"},
-            "D"
+            {"D", "Z"},
+            "D",
         )
 
         # Wrong letter again, different letter
@@ -69,7 +70,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"D", "E", "Z"},
-            "E"
+            "E",
         )
 
         # Correct letter
@@ -80,7 +81,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "S", "S", "_", "S", "S", "_", "_", "_", "_"],
             self.wrong_letters,
             {"D", "E", "Z"},
-            "S"
+            "S",
         )
 
         # Correct letter
@@ -91,7 +92,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "S", "S", "_", "S", "S", "_", "P", "P", "_"],
             self.wrong_letters,
             {"D", "E", "Z"},
-            "P"
+            "P",
         )
 
         # Wrong letter
@@ -102,7 +103,7 @@ class SomeLettersWrongWin(unittest.TestCase):
             ["M", "_", "S", "S", "_", "S", "S", "_", "P", "P", "_"],
             self.wrong_letters,
             {"D", "E", "K", "Z"},
-            "K"
+            "K",
         )
 
         # Correct letter
@@ -113,9 +114,9 @@ class SomeLettersWrongWin(unittest.TestCase):
             "I",
             self.wrong_letters,
             ["M", "I", "S", "S", "I", "S", "S", "I", "P", "P", "I"],
-            {"D", "E", "K", "Z"}
+            {"D", "E", "K", "Z"},
         )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

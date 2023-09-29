@@ -5,7 +5,6 @@ from tests.helpers.guess_letter_assertions import GuessLetterAssertions
 
 
 class SomeLettersWrongLost(unittest.TestCase):
-
     word = "MISSISSIPPI"
     unfilled_word = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"]
     wrong_letters = set()
@@ -13,7 +12,6 @@ class SomeLettersWrongLost(unittest.TestCase):
     guess_letter_assertions = GuessLetterAssertions()
 
     def test_guess_letter_some_letters_wrong_lost(self):
-
         # User guesses some letters wrong and loses the game
 
         # Wrong letter
@@ -23,7 +21,7 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"U"},
-            "U"
+            "U",
         )
 
         # Correct letter
@@ -33,7 +31,7 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"U"},
-            "M"
+            "M",
         )
 
         # Wrong letter
@@ -43,7 +41,7 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"C", "U"},
-            "C"
+            "C",
         )
 
         # Wrong letter
@@ -53,7 +51,7 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"C", "U", "D"},
-            "D"
+            "D",
         )
 
         # Wrong letter
@@ -63,7 +61,7 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"C", "D", "U", "V"},
-            "V"
+            "V",
         )
 
         # Wrong letter
@@ -73,7 +71,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
             self.wrong_letters,
             {"C", "D", "F", "U", "V"},
-            "F")
+            "F",
+        )
 
         # Correct letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -82,7 +81,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
             self.wrong_letters,
             {"C", "D", "F", "U", "V"},
-            "I")
+            "I",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -91,7 +91,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "C", "D", "F", "U", "V"},
-            "A")
+            "A",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -100,7 +101,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "F", "U", "V"},
-            "B")
+            "B",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -109,7 +111,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "F", "N", "U", "V"},
-            "N")
+            "N",
+        )
 
         # Correct letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -118,7 +121,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "F", "N", "U", "V"},
-            "S")
+            "S",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -127,7 +131,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "E", "F", "N", "U", "V"},
-            "E")
+            "E",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_neither_won(
@@ -136,7 +141,8 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "E", "F", "N", "U", "V", "Z"},
-            "Z")
+            "Z",
+        )
 
         # Wrong letter
         self.guess_letter_assertions.assert_guess_letter_user_lost(
@@ -145,8 +151,9 @@ class SomeLettersWrongLost(unittest.TestCase):
             ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
             self.wrong_letters,
             {"A", "B", "C", "D", "E", "F", "N", "U", "W", "V", "Z"},
-            "W")
+            "W",
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

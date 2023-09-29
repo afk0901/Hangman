@@ -4,7 +4,6 @@ from src.guess_letter import wrong_letter_guessed
 
 
 class WrongLetter(unittest.TestCase):
-
     def test_wrong_letter_guessed_wrong_letter_guessed(self):
         # Guessing b that's not in the word.
         wrong_letter = wrong_letter_guessed("tester", "b")
@@ -16,5 +15,5 @@ class WrongLetter(unittest.TestCase):
         self.assertFalse(wrong_letter)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
