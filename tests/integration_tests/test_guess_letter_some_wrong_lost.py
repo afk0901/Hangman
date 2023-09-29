@@ -1,71 +1,152 @@
 import unittest
 
-from src.guess_letter import guess_letter
-from src.won_lost import win, lost
+from tests.helpers.lost_won_assertions import LostWonAssertions
+from tests.helpers.guess_letter_assertions import GuessLetterAssertions
 
 
 class SomeLettersWrongLost(unittest.TestCase):
 
-    def setUp(self) -> None:
-        self.word = "MISSISSIPPI"
-        self.unfilled_word = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"]
-        self.wrong_letters = set()
+    word = "MISSISSIPPI"
+    unfilled_word = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"]
+    wrong_letters = set()
+    lost_won_assertions = LostWonAssertions()
+    guess_letter_assertions = GuessLetterAssertions()
 
     def test_guess_letter_some_letters_wrong_lost(self):
+
         # User guesses some letters wrong and loses the game
 
         # Wrong letter
-        guess_letter(self.unfilled_word, self.word, "U", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"U"})
-        self.assertEqual(self.unfilled_word, ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
-
-        #TODO: We use this very often to check for the win and lost status
-        # so put this into a helper function.
-
-        did_lost = win(self.unfilled_word, self.word)
-        did_win = lost(self.wrong_letters)
-        self.assertFalse(did_win)
-        self.assertFalse(did_lost)
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"U"},
+            "U"
+        )
 
         # Correct letter
-        guess_letter(self.unfilled_word, self.word, "M", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"U"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
-
-        # assert_win_loss
-
-        # Wrong letter
-        guess_letter(self.unfilled_word, self.word, "C", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"C", "U"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
-
-        # assert_win_loss
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"U"},
+            "M"
+        )
 
         # Wrong letter
-        guess_letter(self.unfilled_word, self.word, "D", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"C", "U", "D"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
-
-        # assert_win_loss
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"C", "U"},
+            "C"
+        )
 
         # Wrong letter
-        guess_letter(self.unfilled_word, self.word, "C", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"C", "D", "U"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"C", "U", "D"},
+            "D"
+        )
 
-        # assert_win_loss
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"C", "D", "U", "V"},
+            "V"
+        )
 
-        guess_letter(self.unfilled_word, self.word, "V", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"C", "D", "U", "V"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"],
+            self.wrong_letters,
+            {"C", "D", "F", "U", "V"},
+            "F")
 
-        # assert_win_loss
+        # Correct letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"C", "D", "F", "U", "V"},
+            "I")
 
-        guess_letter(self.unfilled_word, self.word, "F", self.wrong_letters)
-        self.assertEqual(self.wrong_letters, {"C", "D", "F", "U", "V"})
-        self.assertEqual(self.unfilled_word, ["M", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"])
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "C", "D", "F", "U", "V"},
+            "A")
 
-        # TODO: CONTINUE
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "F", "U", "V"},
+            "B")
+
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "_", "_", "I", "_", "_", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "F", "N", "U", "V"},
+            "N")
+
+        # Correct letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "F", "N", "U", "V"},
+            "S")
+
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "E", "F", "N", "U", "V"},
+            "E")
+
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_neither_won(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "E", "F", "N", "U", "V", "Z"},
+            "Z")
+
+        # Wrong letter
+        self.guess_letter_assertions.assert_guess_letter_user_lost(
+            self.word,
+            self.unfilled_word,
+            ["M", "I", "S", "S", "I", "S", "S", "I", "_", "_", "I"],
+            self.wrong_letters,
+            {"A", "B", "C", "D", "E", "F", "N", "U", "W", "V", "Z"},
+            "W")
+
 
 if __name__ == '__main__':
     unittest.main()

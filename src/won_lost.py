@@ -1,9 +1,9 @@
 """
-Contains methods that tells us if the user lost or won the game.
+Contains methods that tell us if the user lost or won the game.
 """
 
 
-def win(unfilled_word, word):
+def win(unfilled_word: list[str], word: str):
     """
     Did the user win the game?
 
@@ -15,10 +15,10 @@ def win(unfilled_word, word):
     return unfilled_word == word
 
 
-def lost(wrong_guesses):
+def lost(wrong_guesses: set[str]):
     """
-    Did the user lost the game?
-    User looses the game when guessed wrong 11 times
+    Did the user lose the game?
+    User loses the game when guessed wrong 11 times
     :return: True or False depending on if the game is lost or not
     """
     return len(wrong_guesses) == 11
