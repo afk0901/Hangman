@@ -38,15 +38,3 @@ def wrong_letter_guessed(word, letter):
              is in the word or not.
     """
     return letter not in word
-
-
-def letter_already_guessed(unfilled_word, letter):
-    """
-    Determines if the user has already guessed the letter
-
-    :param unfilled_word: unfilled_word: Word that's not complete such as: <letter> _ _ _ _ ...
-    :param letter: The guessed letter
-    :return: True if user has already guessed the letter
-             otherwise False
-    """
-    return letter in "".join(unfilled_word)
