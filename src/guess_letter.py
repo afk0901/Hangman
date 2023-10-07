@@ -24,11 +24,6 @@ def guess_letter(
     if wrong_letter_guessed(word, letter):
         wrong_letters.add(letter)
 
-    # TODO: If user puts in a word that contains other than characters
-    # raise error.
-
-    # TODO: User can only guess one letter at time not many letters
-
     # TODO: User gets a message if letter has already been guessed.
 
 
