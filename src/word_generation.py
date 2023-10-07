@@ -33,19 +33,14 @@ def generate_random_word() -> str:
     resp = requests.get("https://random-word-api.herokuapp.com/word")
 
     # TODO: Check if the user has an internet connection.
+    # Next version.
     # This may happen even tho the user have.
     # Just print no internet connection or check your connection.
     # or provide a fallback?
+    # for now, the user has to figure it by himself.
 
-    if resp.status_code == 500:
-        # TODO: Log the error
-        raise RuntimeError(
-            "Something went wrong. "
-            "External resource can't run. "
-            "The incident has been logged and "
-            "developers have been notified to solve "
-            "the problem."
-            "We are truly sorry, try again later."
-        )
+    # TODO: Regenerate the word if it's not alphanumeric
+    # Let's do that in the next version. The API we are
+    # using now should always do so.
 
     return json.loads(resp.content)[0]  # Deserialize and return one word.

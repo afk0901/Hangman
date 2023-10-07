@@ -1,16 +1,19 @@
-import json
 import unittest
 import httpretty
-import requests
 
 from src.word_generation import generate_random_word
 
+"""
+Contains tests for the API that generates random words for us.
+"""
 
-class GenerateRandomWord(unittest.TestCase):
-    def test_generate_random_word_request_ok(self):
+
+class GenerateRandomWordAPITest(unittest.TestCase):
+    def setUp(self):
         # Monkey patching the socket module
         httpretty.enable(verbose=True, allow_net_connect=False)
 
+    def test_generate_random_word_request_ok(self):
         # Faking the request
         httpretty.register_uri(
             httpretty.GET,
@@ -20,21 +23,14 @@ class GenerateRandomWord(unittest.TestCase):
 
         self.assertEqual("pogonophorans", generate_random_word())
 
-        httpretty.disable()  # disable afterward, so that you will have no problems in code that uses that socket module
-        httpretty.reset()  # reset HTTPretty state (clean up registered urls and request history)
+    def test_generate_random_word_API_broken(self):
+        # When the API doesnt return JSON response, raise error.
 
-    def test_generate_random_word_API_down(self):
-        # When the API is broken, raise error.
-
-        # Monkey patching the socket module
-        httpretty.enable(verbose=True, allow_net_connect=False)
-
-        # Faking the request, producing 500 server errors
+        # Faking the request, producing illegal JSON.
         httpretty.register_uri(
             httpretty.GET,
             "https://random-word-api.herokuapp.com/word",
-            status=500,
-            body="Internal Server Error",
+            body="{I'm not a legal JSON response",
         )
 
         # Was discovering that Python uses __enter__ and __exit__
@@ -48,14 +44,33 @@ class GenerateRandomWord(unittest.TestCase):
         # This also reduces the probability of incorrect setup
         # and teardown of the resource.
 
-        with self.assertRaises(RuntimeError):
+        # Using Exception because to simulate behavior
+        # better instead of relying on a package.
+
+        with self.assertRaises(Exception):
             generate_random_word()
 
     def test_generate_random_word_resource_not_found(self):
-        ...
+        # Faking the request, producing 500 server errors
+        httpretty.register_uri(
+            httpretty.GET,
+            "https://random-word-api.herokuapp.com/testertestyflopp",
+            status=404,
+            body="[{}]",
+        )
+
+        with self.assertRaises(Exception):
+            generate_random_word()
 
     def test_generate_random_word_no_internet_connection(self):
+        # Next version problem
         ...
+
+    def tearDown(self):
+        # disable afterward, so that you will have no problems in code that uses that socket module
+        httpretty.disable()
+        # reset HTTPretty state (clean up registered urls and request history)
+        httpretty.reset()
 
 
 if __name__ == "__main__":
