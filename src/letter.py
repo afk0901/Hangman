@@ -16,6 +16,7 @@ def letter_positions(word, letter):
     If they do not exist, then an empty array is returned.
     """
     positions = []
+
     for index, _ in enumerate(word):
         if word[index] == letter:
             positions.append(index)
@@ -29,7 +30,11 @@ def fill_in_letter(unfilled_word, letter, positions):
     :param unfilled_word: Word that's not complete, such as <letter> _ _ _ _ ...
     :param letter: The letter to fill in
     :param positions: The positions of the letter in the word
-    :return: Array with the letter filled in among with existing letters
+    :return: List with the letter in the correct place.
     """
+    # Create a copy of the unfilled_word list to avoid side effects.
+    filled_word = unfilled_word.copy()
+
     for pos in positions:
-        unfilled_word[pos] = letter
+        filled_word[pos] = letter
+    return filled_word

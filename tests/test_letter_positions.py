@@ -8,7 +8,7 @@ class LetterPositions(unittest.TestCase):
         word_not_contains_o = letter_positions("test", "o")
         self.assertEqual(word_not_contains_o, [])
 
-    def test_word_does_contain_the_letter(self):
+    def test_word_does_contain_the_letter_correct_pos(self):
         word_contains_e = letter_positions("tester", "e")
         self.assertEqual(word_contains_e, [1, 4])
 
