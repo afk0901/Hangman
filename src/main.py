@@ -16,18 +16,20 @@ from src.word_generation import populate_unfilled_word, generate_random_word
 # TODO: Ensure utf-8 encoding
 
 
-def reset_word(the_word: str, unfinished_word: list[str], the_wrong_letters: set[str]):
+def reset_game_state(the_word: str, unfinished_word: list[str]):
     """
+    Resets the game state to the initial state
     :param the_word:
     :param unfinished_word:
-    :param the_wrong_letters:
+    #:param the_wrong_letters:
 
     :return: Unfinished word that has been cleared.
             (Only underscores)
     """
-
-    the_wrong_letters.clear()
-    return populate_unfilled_word(the_word)
+    ...
+    # the_wrong_letters.clear()
+    unfinished_word = populate_unfilled_word(the_word)
+    return True
 
 
 if __name__ == "__main__":
