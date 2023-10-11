@@ -15,25 +15,30 @@ from src.word_generation import populate_unfilled_word, generate_random_word
 
 # TODO: Ensure utf-8 encoding
 
+# TODO: User gets a message if letter has already been guessed.
 
-def reset_game_state(the_word: str, unfinished_word: list[str]):
-    """
-    Resets the game state to the initial state
-    :param the_word:
-    :param unfinished_word:
-    #:param the_wrong_letters:
 
-    :return: Unfinished word that has been cleared.
-            (Only underscores)
+def reset_game_state(the_word: str):
     """
-    ...
-    # the_wrong_letters.clear()
-    unfinished_word = populate_unfilled_word(the_word)
-    return True
+    Resets the game state to the initial state.
+    :param the_word: The actual word
+
+    :return: A dictionary of unfilled_word and wrong_letters
+    in its initial state and generates a new word and stores
+    in the dictionary as new_word.
+    """
+    new_word = generate_random_word()
+    unfinished_word = populate_unfilled_word(new_word)
+    return {
+        "unfilled_word": unfinished_word,
+        "wrong_letters": set(),
+        "new_word": new_word,
+    }
 
 
 if __name__ == "__main__":
     word = generate_random_word()
+    # word = "nonconstruction"
     print(word)
     wrong_letters = set()
     unfilled_word = populate_unfilled_word(word)
@@ -41,23 +46,32 @@ if __name__ == "__main__":
     try_again = "y"
 
     while try_again == "y":
-        print(unfilled_word)
-        letter = input()
-        guess_letter(unfilled_word, word, letter, wrong_letters)
+        print(word)
         print(unfilled_word)
         print("Wrong letters:")
         print(wrong_letters)
+        letter = input()
+
+        unfilled_word = guess_letter(unfilled_word, word, letter, wrong_letters)[
+            "unfilled_word"
+        ]
+        wrong_letters = guess_letter(unfilled_word, word, letter, wrong_letters)[
+            "wrong_letters"
+        ]
 
         if win(unfilled_word, word):
+            print(unfilled_word)
             print("YOU WON! CONGRATULATIONS! THIS IS THE WORD!")
             print("Press y to try again :) ")
             try_again = input().lower()
-            # reset_game_state(word, unfilled_word, wrong_letters)
 
         elif lost(wrong_letters):
+            print(unfilled_word)
             print("DAMN! YOU LOST THE GAME! HANGEEEEED!")
             print("Press y to try again :) Press any key than y to quit.")
             try_again = input().lower()
-            unfilled_word = populate_unfilled_word(word)
-            wrong_letters.clear()
-            # reset_game_state()
+
+        if win(unfilled_word, word) or lost(wrong_letters):
+            word = reset_game_state(word)["new_word"]
+            unfilled_word = reset_game_state(word)["unfilled_word"]
+            wrong_letters = set()

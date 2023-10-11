@@ -17,6 +17,8 @@ def guess_letter(
     :param wrong_letters:
         Set of letters that already exist and are wrong.
         Empty if no letters have been guessed.
+
+    :returns: A dictionary of the unfilled word and the wrong letters
     """
     positions = letter_positions(word, letter)
 
@@ -29,8 +31,6 @@ def guess_letter(
     if wrong_letter_guessed(word, letter):
         the_wrong_letters.add(letter)
     return {"unfilled_word": unfilled_word, "wrong_letters": the_wrong_letters}
-
-    # TODO: User gets a message if letter has already been guessed.
 
 
 def wrong_letter_guessed(word, letter):
