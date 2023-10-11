@@ -5,7 +5,7 @@ from src.guess_letter import wrong_letter_guessed
 
 class WrongLetter(unittest.TestCase):
     def test_wrong_letter_guessed_wrong_letter_guessed(self):
-        # Guessing b that's not in the word.
+        # Guessing b, that's not in the word.
         wrong_letter = wrong_letter_guessed("tester", "b")
         self.assertTrue(wrong_letter)
 

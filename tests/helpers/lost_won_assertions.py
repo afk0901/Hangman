@@ -10,15 +10,20 @@ class LostWonAssertions(unittest.TestCase):
     or the user lost.
     """
 
-    def assert_not_lost_not_won(
-        self, unfilled_word: list[str], word: str, wrong_letters: set[str]
+    def assert_neither_won(
+        self,
+        unfilled_word: list[str],
+        word: str,
+        wrong_letters: set[str],
     ):
         """
         Asserts if the user has not lost the game, neither win the game.
-        :param: unfilled_word:
-        :param: word:
-
+        :param: Unfilled_word: The unfinished word, for example, _ _ _ _ a
+        :param: word: The actual word
+        :param: expected_wrong_letters: The letters that we expect to be wrong
+                when we check if neither won.
         """
+
         did_lost = win(unfilled_word, word)
         did_win = lost(wrong_letters)
         self.assertFalse(did_win)

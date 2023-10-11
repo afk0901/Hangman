@@ -19,10 +19,16 @@ def guess_letter(
         Empty if no letters have been guessed.
     """
     positions = letter_positions(word, letter)
-    fill_in_letter(unfilled_word, letter, positions)
 
+    unfilled_word = fill_in_letter(unfilled_word, letter, positions)
+
+    # So that we are not changing the parameter reference,
+    # then we make a copy.
+
+    the_wrong_letters = wrong_letters.copy()
     if wrong_letter_guessed(word, letter):
-        wrong_letters.add(letter)
+        the_wrong_letters.add(letter)
+    return {"unfilled_word": unfilled_word, "wrong_letters": the_wrong_letters}
 
     # TODO: User gets a message if letter has already been guessed.
 
