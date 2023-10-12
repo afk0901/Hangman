@@ -18,10 +18,9 @@ from src.word_generation import populate_unfilled_word, generate_random_word
 # TODO: User gets a message if letter has already been guessed.
 
 
-def reset_game_state(the_word: str):
+def reset_game_state():
     """
     Resets the game state to the initial state.
-    :param the_word: The actual word
 
     :return: A dictionary of unfilled_word and wrong_letters
     in its initial state and generates a new word and stores
@@ -38,7 +37,6 @@ def reset_game_state(the_word: str):
 
 if __name__ == "__main__":
     word = generate_random_word()
-    # word = "nonconstruction"
     print(word)
     wrong_letters = set()
     unfilled_word = populate_unfilled_word(word)
@@ -72,6 +70,7 @@ if __name__ == "__main__":
             try_again = input().lower()
 
         if win(unfilled_word, word) or lost(wrong_letters):
-            word = reset_game_state(word)["new_word"]
-            unfilled_word = reset_game_state(word)["unfilled_word"]
+            reset_game = reset_game_state()
+            word = reset_game["new_word"]
+            unfilled_word = reset_game["unfilled_word"]
             wrong_letters = set()
