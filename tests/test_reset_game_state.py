@@ -11,11 +11,6 @@ class ResetGameState(unittest.TestCase):
     # Also providing more speed.
     def setUp(self):
         self.unfinished_word = ["_", "_", "_", "_", "_", "_", "_"]
-        self.patcher = patch(
-            "src.word_generation.generate_random_word",
-            return_value="mocked",
-        )
-        self.mocked_generate_random_word = self.patcher.start()
         self.reset_game = reset_game_state()
         self.new_word = "mocked"
 
@@ -28,11 +23,18 @@ class ResetGameState(unittest.TestCase):
         self.assertEqual(self.reset_game["wrong_letters"], set())
 
     def test_reset_game_state_new_word(self):
-        self.assertEqual(self.reset_game["new_word"], self.new_word)
+        reset_game = reset_game_state()
+        self.assertEqual(reset_game["new_word"], "mocked")
 
-    def tearDown(self):
-        # Stop the patcher after the test
-        self.patcher.stop()
+    @patch("src.main.generate_random_word")
+    def test_reset_game_state(self, mock_generate_random_word):
+        # Set the return value of the mocked function
+        mock_generate_random_word.return_value = "hardcoded"
+
+        game_state = reset_game_state()
+
+        # Now, whenever reset_game_state is called within this test, generate_random_word will return 'hardcoded'
+        self.assertEqual(game_state["new_word"], "hardcoded")
 
 
 if __name__ == "__main__":
