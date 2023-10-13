@@ -40,21 +40,20 @@ def already_guessed(guess: str, wrong_letters: set):
         raise ValueError
 
 
-def input_validation():
-    # TODO: Check if each of the validation method raises
-    # exception.
-
-    # TODO: User can only guess one letter at time not many letters
-
-    # TODO: If user puts in a word that contains other than characters raise error.
-
-    # TODO: Dissallow Non-alphanumeric characteres
-
-    # TODO: Ensure capitalized letters are lowered
-    #  (Put to lower case in the beginning)
-
-    # TODO: Dissallow empty inputs
-
-    # TODO: User gets a message if letter has already been guessed.
-
-    ...
+def input_validation(guessed_letter: str, wrong_letters: set):
+    """
+    Validates the user's input.
+    Returns False if no error True otherwise.
+    :param guessed_letter: The letter the user guessed.
+    :param wrong_letters:  The wrongly guessed letters.
+    :return: True if input is okay, False otherwise
+    """
+    guessed_letter = guessed_letter.lower()
+    try:
+        only_one_letter_at_time(guessed_letter)
+        already_guessed(guessed_letter, wrong_letters)
+        only_alphabetic(guessed_letter)
+        no_empty_guess(guessed_letter)
+    except ValueError:
+        return True
+    return False

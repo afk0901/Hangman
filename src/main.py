@@ -1,4 +1,5 @@
 from src.guess_letter import guess_letter
+from src.input_validation import input_validation
 from src.won_lost import lost, win
 from src.word_generation import populate_unfilled_word, generate_random_word
 from src.reset_game_state import reset_game_state
@@ -18,6 +19,10 @@ if __name__ == "__main__":
         print("Wrong letters:")
         print(wrong_letters)
         letter = input()
+
+        while input_validation(letter, wrong_letters):
+            print("invalid input")
+            letter = input()
 
         unfilled_word = guess_letter(unfilled_word, word, letter, wrong_letters)[
             "unfilled_word"
