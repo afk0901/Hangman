@@ -32,7 +32,7 @@ def _no_empty_guess(guess: str):
 
     :param guess: The letter that the user guesses
     """
-    if guess == "" or guess == " ":
+    if guess in ("", " "):
         raise ValueError
 
 

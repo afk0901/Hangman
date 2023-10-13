@@ -17,7 +17,7 @@ def populate_unfilled_word(the_word: str):
     :return: List of underscores. List length is equal the_word length
     """
     uncompleted_word = []
-    for char in range(len(the_word)):
+    for _ in range(len(the_word)):
         uncompleted_word.append("_")
     return uncompleted_word
 

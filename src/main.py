@@ -12,9 +12,9 @@ if __name__ == "__main__":
     wrong_letters = set()
     unfilled_word = populate_unfilled_word(word)
 
-    try_again = "y"
+    TRY_AGAIN = "y"
 
-    while try_again == "y":
+    while TRY_AGAIN == "y":
         print(unfilled_word)
         print("Wrong letters:")
         print(wrong_letters)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
             print(unfilled_word)
             print("YOU WON! CONGRATULATIONS! THIS IS THE WORD!")
             print("Press y to try again :) ")
-            try_again = input().lower()
+            TRY_AGAIN = input().lower()
 
         elif lost(wrong_letters):
             print(unfilled_word)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             print("The word is: ")
             print(word)
             print("Press y to try again :) Press any key than y to quit.")
-            try_again = input().lower()
+            TRY_AGAIN = input().lower()
 
         if win(unfilled_word, word) or lost(wrong_letters):
             reset_game = reset_game_state()
