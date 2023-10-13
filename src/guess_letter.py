@@ -1,6 +1,5 @@
-"""
-Handles what happens when the user guesses a letter.
-"""
+"""This module handles what happens when the user guesses a letter."""
+
 from src.letter import letter_positions, fill_in_letter
 
 
@@ -8,8 +7,7 @@ def guess_letter(
     unfilled_word: list[str], word: str, letter: str, wrong_letters: set[str]
 ):
     """
-    Fills in the letter if it's in the word otherwise
-    appends to the wrongly_guessed_letter array.
+    Fill in the letter if it's in the word otherwise append to the wrongly_guessed_letter array.
 
     :param unfilled_word: Word that's not complete, such as <letter> _ _ _ _ ...
     :param letter: Guessed letter
@@ -35,7 +33,8 @@ def guess_letter(
 
 def wrong_letter_guessed(word, letter):
     """
-     Determines if the user guessed the wrong letter.
+     Determine if the user guesses the wrong letter.
+
     :param word: The actual word
     :param letter: The guessed letter
     :return: boolean depending on if the letter

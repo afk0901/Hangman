@@ -1,4 +1,7 @@
-def only_one_letter_at_time(guessed_letter: str):
+"""This module takes care of the input validation of the Hangman game"""
+
+
+def _only_one_letter_at_time(guessed_letter: str):
     """
     User can only guess one letter at a time.
     :param guessed_letter: Letter or the invalid string that
@@ -9,7 +12,7 @@ def only_one_letter_at_time(guessed_letter: str):
         raise ValueError
 
 
-def only_alphabetic(guess: str):
+def _only_alphabetic(guess: str):
     """
     Raises ValueError if user guesses non-alphabetical letters.
     :param guess: The user's guess
@@ -18,7 +21,7 @@ def only_alphabetic(guess: str):
         raise ValueError
 
 
-def no_empty_guess(guess: str):
+def _no_empty_guess(guess: str):
     """
     Raises ValueError if guess is empty.
     Space is considered to be empty as it makes
@@ -29,7 +32,7 @@ def no_empty_guess(guess: str):
         raise ValueError
 
 
-def already_guessed(guess: str, wrong_letters: set):
+def _already_guessed(guess: str, wrong_letters: set):
     """
     Raises valueError if the letter is already guessed.
     :param guess: The user's guess
@@ -50,10 +53,10 @@ def input_validation(guessed_letter: str, wrong_letters: set):
     """
     guessed_letter = guessed_letter.lower()
     try:
-        only_one_letter_at_time(guessed_letter)
-        already_guessed(guessed_letter, wrong_letters)
-        only_alphabetic(guessed_letter)
-        no_empty_guess(guessed_letter)
+        _only_one_letter_at_time(guessed_letter)
+        _already_guessed(guessed_letter, wrong_letters)
+        _only_alphabetic(guessed_letter)
+        _no_empty_guess(guessed_letter)
     except ValueError:
         return True
     return False
