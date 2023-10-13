@@ -1,7 +1,7 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
-from src.main import reset_game_state
+from src.reset_game_state import reset_game_state
 
 
 class ResetGameState(unittest.TestCase):
@@ -13,7 +13,9 @@ class ResetGameState(unittest.TestCase):
         self.unfinished_word = ["_", "_", "_", "_", "_", "_", "_"]
 
         # Start the patcher for the generate_random_word function call
-        self.mock_generate_random_word = patch("src.main.generate_random_word").start()
+        self.mock_generate_random_word = patch(
+            "src.reset_game_state.generate_random_word"
+        ).start()
         # Set the return value of the mocked function call (generate_random_word)
         self.mock_generate_random_word.return_value = "hardcoded"
 

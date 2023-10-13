@@ -1,38 +1,7 @@
 from src.guess_letter import guess_letter
 from src.won_lost import lost, win
 from src.word_generation import populate_unfilled_word, generate_random_word
-
-
-# TODO: User can only guess one letter at time not many letters
-
-# TODO: If user puts in a word that contains other than characters raise error.
-
-# TODO: Ensure capitalized letters are lowered
-
-# TODO: Dissallow Non-alphanumeric characteres
-
-# TODO: Dissallow duplicate guesses and empty inputs
-
-# TODO: Ensure utf-8 encoding
-
-# TODO: User gets a message if letter has already been guessed.
-
-
-def reset_game_state():
-    """
-    Resets the game state to the initial state.
-
-    :return: A dictionary of unfilled_word and wrong_letters
-    in its initial state and generates a new word and stores
-    in the dictionary as new_word.
-    """
-    new_word = generate_random_word()
-    unfinished_word = populate_unfilled_word(new_word)
-    return {
-        "unfilled_word": unfinished_word,
-        "wrong_letters": set(),
-        "new_word": new_word,
-    }
+from src.reset_game_state import reset_game_state
 
 
 if __name__ == "__main__":
