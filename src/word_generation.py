@@ -28,5 +28,5 @@ def generate_random_word() -> str:
 
     :return: A random word
     """
-    resp = requests.get("https://random-word-api.herokuapp.com/word")
+    resp = requests.get("https://random-word-api.herokuapp.com/word", timeout=60)
     return json.loads(resp.content)[0]  # Deserialize and return one word.

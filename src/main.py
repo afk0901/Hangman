@@ -9,14 +9,12 @@ from src.reset_game_state import reset_game_state
 
 if __name__ == "__main__":
     word = generate_random_word()
-    print(word)
     wrong_letters = set()
     unfilled_word = populate_unfilled_word(word)
 
     try_again = "y"
 
     while try_again == "y":
-        print(word)
         print(unfilled_word)
         print("Wrong letters:")
         print(wrong_letters)
@@ -42,6 +40,8 @@ if __name__ == "__main__":
         elif lost(wrong_letters):
             print(unfilled_word)
             print("DAMN! YOU LOST THE GAME! HANGEEEEED!")
+            print("The word is: ")
+            print(word)
             print("Press y to try again :) Press any key than y to quit.")
             try_again = input().lower()
 
