@@ -1,9 +1,11 @@
+"""This module takes care of resetting the state of the game to the initial state."""
+
 from src.word_generation import generate_random_word, populate_unfilled_word
 
 
 def reset_game_state():
     """
-    Resets the game state to the initial state.
+    Reset the game state to the initial state.
 
     :return: A dictionary of unfilled_word and wrong_letters
     in its initial state and generates a new word and stores

@@ -1,3 +1,5 @@
+"""This is the file where you should run the whole system. Puts everything together."""
+
 from src.guess_letter import guess_letter
 from src.input_validation import input_validation
 from src.won_lost import lost, win

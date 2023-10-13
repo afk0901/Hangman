@@ -1,19 +1,18 @@
 """
-Contains methods that handle the given letter,
-such as the positions of the letter or
-wrong letter.
+Contains methods that handle the given letter.
+
+Such as the positions of the letter or wrong letter.
 """
 
 
 def letter_positions(word, letter):
     """
-    If word contains the letter, then return their positions
-    in the string.
+    If word contains the letter, then return their positions in the string.
 
     :param word: The existing word
     :param letter: Letter that's being guessed
-    :return: Array of the positions of the letters.
-    If they do not exist, then an empty array is returned.
+    :return: List of the letter positions.
+             If they do not exist, then an empty array is returned.
     """
     positions = []
 
@@ -25,7 +24,7 @@ def letter_positions(word, letter):
 
 def fill_in_letter(unfilled_word, letter, positions):
     """
-    Fills in a letter to an unfilled word such as <letter> _ _ _ _ ...
+    Fill in a letter to an unfilled word such as <letter> _ _ _ _ ...
 
     :param unfilled_word: Word that's not complete, such as <letter> _ _ _ _ ...
     :param letter: The letter to fill in
