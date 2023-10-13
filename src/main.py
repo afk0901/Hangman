@@ -9,7 +9,7 @@ from src.reset_game_state import reset_game_state
 
 if __name__ == "__main__":
     word = generate_random_word()
-    wrong_letters = set()
+    wrong_letters: set[str] = set()
     unfilled_word = populate_unfilled_word(word)
 
     TRY_AGAIN = "y"

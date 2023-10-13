@@ -9,8 +9,8 @@ def win(unfilled_word: list[str], word: str):
     :param word: The actual word
     :return: True if game is won False otherwise if not yet won.
     """
-    unfilled_word = "".join(unfilled_word)
-    return unfilled_word == word
+    unfinished_word = "".join(unfilled_word)
+    return unfinished_word == word
 
 
 def lost(wrong_guesses: set[str]):
