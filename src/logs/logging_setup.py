@@ -1,14 +1,23 @@
 import logging
+import os
 from logging.handlers import RotatingFileHandler
 import sys
 
 
 def log():
+    home = os.path.expanduser("~")
+
+    # For Windows
+    app_data_folder = os.path.join(home, "AppData", "Local", "Hangman", "Logs")
+
+    if not os.path.exists(app_data_folder):
+        os.makedirs(app_data_folder)
+
     logger = logging.getLogger("hangman_logger")
     logger.setLevel(logging.INFO)
 
     file_handler = RotatingFileHandler(
-        "logs/hangman.log", maxBytes=int(1e6), backupCount=5
+        f"{app_data_folder}/hangman.log", maxBytes=int(1e6), backupCount=5
     )  # Maximum filesize = 1MB
     formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
     file_handler.setFormatter(formatter)

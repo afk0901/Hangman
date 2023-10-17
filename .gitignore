@@ -2,3 +2,6 @@
 *__pycache__*
 .coverage
 .log.*
+dist/
+build/
+*.spec
