@@ -11,20 +11,19 @@ to solve the mystery. Will you decipher the word in time, or will the hangman cl
 
 # Table of contents
 
-1. <a href="#Hangman Game Installation Guide">Installation</a>
-2. Development installation
+1. [Installation](#hangman-game-installation-guide)
+2. [Development installation](#development-setup-guide-for-hangman)
 3. Usage
 4. Features
 5. Contribute
-6. Licence
 
 # Hangman Game Installation Guide
 
 1. Navigate to Hangman's [Release Page](https://github.com/afk0901/Hangman/releases/tag/Major) and click on <strong>Hangman.exe</strong> to download.
-2. <b>Note:</b> Some operating systems might block .exe files by default for security reasons. You might need to workaround that in your browser to download and run the installer.
-3. Once downloaded, open the Hangman.exe file.
-4. Proceed with the installation by following the prompts.
-5. After installation, you're all set! Launch Hangman and enjoy the game.
+   <b>Note:</b> Some operating systems might block .exe files by default for security reasons. You might need to workaround that in your browser to download and run the installer.
+2. Once downloaded, open the Hangman.exe file.
+3. Proceed with the installation by following the prompts.
+4. After installation, you're all set! Launch Hangman and enjoy the game.
 
 # Development Setup Guide for Hangman
 
