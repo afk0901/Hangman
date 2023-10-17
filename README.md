@@ -13,9 +13,9 @@ to solve the mystery. Will you decipher the word in time, or will the hangman cl
 
 1. [Installation](#hangman-game-installation-guide)
 2. [Development installation](#development-setup-guide-for-hangman)
-3. Usage
-4. Features
-5. Contribute
+3. [Usage](#usage)
+4. [Features](#features)
+5. [Contribute](#contribute)
 
 # Hangman Game Installation Guide
 
